@@ -1,7 +1,8 @@
-package Pendahuluan;
+package Praktikum;
+
+import java.util.Scanner;
 
 class Stack {
-
     private int maxSize;
     private long[] stackArray;
     private int top;
@@ -33,20 +34,32 @@ class Stack {
     }
 }
 
-public class StackApp {
-    public static void main(String[] args) {
-        Stack theStack = new Stack(10);
-        System.out.println(">> push some items");
+class Pembalik {
+    private String input;
+    private String output;
 
-        theStack.push(20);
-        theStack.push(40);
-        theStack.push(60);
-        theStack.push(80);
-
-        System.out.println("\n>> pop some items in the stack");
-        while (!theStack.isEmpty()) {
-            long value = theStack.pop();
-            System.out.print(value + " ");
-        }
+    public Pembalik(String in) {
+        this.input = in;
     }
+
+    public String balikkata() {
+        int stackSize = input.length();
+        Stack theStack = new Stack(stackSize);
+
+        for (int j = 0; j < input.length(); j++) {
+            char ch = input.charAt(j);
+            theStack.push(ch);
+        }
+
+        output = "";
+        while (!theStack.isEmpty()) {
+            char ch = (char) theStack.pop();
+            output = output + ch;
+        }
+        return output;
+    }
+}
+
+public class AppPembalik {
+    
 }
