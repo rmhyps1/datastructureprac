@@ -61,5 +61,27 @@ class Pembalik {
 }
 
 public class AppPembalik {
-    
+     public static void main(String[] args) {
+
+        String kata = "kasur";
+        Pembalik pembalikKata = new Pembalik(kata);
+
+        String hasil = pembalikKata.balikkata();
+
+        System.out.println(">> katanyaa..... ");
+        System.out.println("         " + kata);
+        System.out.println(">> dibalik jadi ");
+        System.out.println("         " + hasil);
+
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\nMasukkan sebuah kata: ");
+        String input = scanner.nextLine();
+
+        Pembalik pembalik = new Pembalik(input);
+        String output = pembalik.balikkata();
+
+        System.out.println("Kata setelah dibalik: " + output);
+        scanner.close();
+     }
 }
