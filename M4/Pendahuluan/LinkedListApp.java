@@ -1,4 +1,4 @@
-package M4.Pendahuluan;
+package Pendahuluan;
 
 class Link {
 

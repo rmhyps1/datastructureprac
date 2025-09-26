@@ -1,6 +1,6 @@
-package M4.Pendahuluan;
+package Pendahuluan;
 
-public class Link {
+class Link {
 
     public int Data;
     public Link next;
