@@ -18,7 +18,7 @@ class Queue {
         }
     }
 
-    public void enqueue(String nama) {
+    public void insert(String nama) {
         if (isFull()) {
             System.out.println("Maaf " + nama + ", antrian masih penuh");
         } else {
@@ -29,7 +29,7 @@ class Queue {
         }
     }
 
-    public void dequeue() {
+    public void remove() {
         if (isEmpty()) {
             System.out.println("Antrian masih kosong");
         } else {
@@ -68,20 +68,20 @@ public class AppQueue {
     public static void main(String[] args) {
         System.out.println(">> Beberapa mulai mengantri");
 
-        Queue antrian = new Queue(4);
-        antrian.enqueue("Andi");
-        antrian.enqueue("Ahmad");
-        antrian.enqueue("Satrio");
-        antrian.enqueue("Afrizal");
-        antrian.enqueue("Sukran");
-        antrian.enqueue("Mahmud");
+    Queue antrian = new Queue(4);
+    antrian.insert("Andi");
+    antrian.insert("Ahmad");
+    antrian.insert("Satrio");
+    antrian.insert("Afrizal");
+    antrian.insert("Sukran");
+    antrian.insert("Mahmud");
 
         System.out.print("\n>> isi antrian");
         antrian.tampil();
 
         System.out.println("\n>> satu persatu keluar antrian");
         while (!antrian.isEmpty()) {
-            antrian.dequeue();
+            antrian.remove();
             antrian.tampil();
         }
 
