@@ -1,3 +1,5 @@
+package M5.Pendahuluan;
+
 class Triangular {
 
     public int triangleIter(int n) {
@@ -9,9 +11,10 @@ class Triangular {
     }
 
     public int triangleRecur(int n) {
+//        return n + triangleRecur(n - 1);
         if (n == 1) {
             return 1;
-        } else {
+      } else {
             return n + triangleRecur(n - 1);
         }
     }
@@ -20,10 +23,11 @@ class Triangular {
 public class TriangularNumber {
     public static void main(String[] args) {
         int n = 5;
-        Triangular triangle = new Triangular();
-        
+
+        Triangular t = new Triangular();
+
         System.out.println("Menghitung bilangan segitiga dari " + n);
-        System.out.println("Versi Iterasi : " + triangle.triangleIter(n));
-        System.out.println("Versi Rekursi : " + triangle.triangleRecur(n));
+        System.out.println("Versi Iterasi : " + t.triangleIter(n));
+        System.out.println("Versi Rekursi : " + t.triangleRecur(n));
     }
 }
