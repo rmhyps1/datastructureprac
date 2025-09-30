@@ -10,14 +10,17 @@ public class StackT {
         tumpukanBuku.push("Buku B");
         tumpukanBuku.push("Buku C");
         System.out.println("Tumpukan saat ini: " + tumpukanBuku);
+
         System.out.println("\n--- Melihat Elemen Teratas (Peek) ---");
         String bukuTeratas = tumpukanBuku.peek();
         System.out.println("Buku teratas: " + bukuTeratas);
         System.out.println("Tumpukan setelah peek: " + tumpukanBuku);
+
         System.out.println("\n--- Mengambil dan Menghapus Elemen (Pop) ---");
         String bukuDiambil = tumpukanBuku.pop();
         System.out.println("Buku yang diambil: " + bukuDiambil);
         System.out.println("Tumpukan setelah pop: " + tumpukanBuku);
+        
         System.out.println("Mengambil buku lagi: " + tumpukanBuku.pop());
         System.out.println("Mengambil buku lagi: " + tumpukanBuku.pop());
         System.out.println("Tumpukan setelah semua di-pop: " + tumpukanBuku);
