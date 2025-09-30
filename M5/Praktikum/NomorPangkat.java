@@ -9,6 +9,7 @@ class Pangkat {
             return base * powerRecur(base, exp - 1);
         }
     }
+}
 
 public class NomorPangkat {
     public static void main(String[] args) {
