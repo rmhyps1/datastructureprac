@@ -15,25 +15,25 @@ class Barang {
     }
 }
 
-class Node {
+class StackNode {
     Barang data;
-    Node next;
+    StackNode next;
 
-    public Node(Barang data) {
+    public StackNode(Barang data) {
         this.data = data;
         this.next = null;
     }
 }
 
 class StackLinkedList {
-    private Node top;
+    private StackNode top;
 
     public StackLinkedList() {
         this.top = null;
     }
 
     public void push(Barang item) {
-        Node newNode = new Node(item);
+        StackNode newNode = new StackNode(item);
         newNode.next = top;
         top = newNode;
     }
@@ -66,7 +66,7 @@ class StackLinkedList {
             System.out.println("(kosong)");
             return;
         }
-        Node current = top;
+        StackNode current = top;
         while (current != null) {
             System.out.println(current.data);
             current = current.next;
