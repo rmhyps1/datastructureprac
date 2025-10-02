@@ -1,12 +1,9 @@
-package Hash;
-
-import java.lang.reflect.Array;
-import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class HashMapNilaiTugas {
     public static void main(String[] args) {
-        HashMap<String, ArrayList<Double>> nilaiTugasMap = new HashMap();
+        HashMap<String, ArrayList<Double>> nilaiTugasMap = new HashMap<>();
 
         ArrayList<Double> nilaiTugas1 = new ArrayList<>();
         nilaiTugas1.add(85.0);
@@ -25,4 +22,5 @@ public class HashMapNilaiTugas {
             System.out.println("Nilai Tugas: " + nilaiTugasMap.get(nim));
             System.out.println();
         }
+    }
 }
