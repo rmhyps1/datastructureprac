@@ -57,6 +57,7 @@ public class HashMapNilaiTugas {
         for (String nim: nilaiTugasMap.keySet()) {
             System.out.println("==================");
             System.out.println("NIM: " + nim);
+            System.out.println("NAMA: ");
             
             // Nilai Tugas
             ArrayList<Double> nilaiTugas = nilaiTugasMap.get(nim);
