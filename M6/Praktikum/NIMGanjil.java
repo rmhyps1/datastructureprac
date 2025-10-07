@@ -97,11 +97,11 @@ public class NIMGanjil {
 
     public static void main(String[] args) {
         Mahasiswa[] data = {
-            new Mahasiswa("240605110123", "Hanif"),
-            new Mahasiswa("240605110024", "Zainab"),
-            new Mahasiswa("240605110035", "Salim"),
-            new Mahasiswa("240605110135", "Ali"),
-            new Mahasiswa("240605110251", "Salah")
+            new Mahasiswa("123", "Hanif"),
+            new Mahasiswa("024", "Zainab"),
+            new Mahasiswa("035", "Salim"),
+            new Mahasiswa("135", "Ali"),
+            new Mahasiswa("251", "Salah")
         };
 
         System.out.println("Data Asli:");
