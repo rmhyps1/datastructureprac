@@ -3,22 +3,30 @@ package M6.Praktikum;
 import java.util.*;
 
 class Mahasiswa {
-    String nama;
     String nim;
-
-    Mahasiswa(String nama, String nim) {
-        this.nama = nama;
+    String nama;
+    
+    Mahasiswa(String nim, String nama) {
         this.nim = nim;
+        this.nama = nama;
+    }
+
+    public String getNim() {
+        return nim;
+    }
+
+    public String getNama() {
+        return nama;
     }
 
     public String toString() {
-        return String.format("%s (%s)", nama, nim);
+        return nim + " - " + nama;
     }
+
 }
 
 public class NIMGanjil {
-
-    public static void mergeSortNIM(Mahasiswa[] arr, int left, int right) {
+        public static void mergeSortNIM(Mahasiswa[] arr, int left, int right) {
         if (left < right) {
             int mid = (left + right) / 2;
             mergeSortNIM(arr, left, mid);
@@ -27,12 +35,12 @@ public class NIMGanjil {
         }
     }
 
-    public static void mergeByNIM(Mahasiswa[] arr, int left, int mid, int right) {
+    private static void mergeByNIM(Mahasiswa[] arr, int left, int mid, int right) {
         Mahasiswa[] temp = new Mahasiswa[right - left + 1];
         int i = left, j = mid + 1, k = 0;
 
         while (i <= mid && j <= right) {
-            if (arr[i].nim.compareTo(arr[j].nim) <= 0) {
+            if (arr[i].getNim().compareTo(arr[j].getNim()) <= 0) {
                 temp[k++] = arr[i++];
             } else {
                 temp[k++] = arr[j++];
@@ -41,7 +49,10 @@ public class NIMGanjil {
 
         while (i <= mid) temp[k++] = arr[i++];
         while (j <= right) temp[k++] = arr[j++];
-        for (i = left, k = 0; i <= right; i++, k++) arr[i] = temp[k];
+
+        for (i = left, k = 0; i <= right; i++, k++) {
+            arr[i] = temp[k];
+        }
     }
 
     public static void shellSortNama(Mahasiswa[] arr) {
@@ -50,7 +61,7 @@ public class NIMGanjil {
             for (int i = gap; i < n; i++) {
                 Mahasiswa temp = arr[i];
                 int j;
-                for (j = i; j >= gap && arr[j - gap].nama.compareTo(temp.nama) > 0; j -= gap) {
+                for (j = i; j >= gap && arr[j - gap].getNama().compareTo(temp.getNama()) > 0; j -= gap) {
                     arr[j] = arr[j - gap];
                 }
                 arr[j] = temp;
@@ -58,66 +69,63 @@ public class NIMGanjil {
         }
     }
 
-    public static void quickSortNIM(Mahasiswa[] arr, int low, int high) {
-        if (low < high) {
-            int pivotIndex = partition(arr, low, high);
-            quickSortNIM(arr, low, pivotIndex - 1);
-            quickSortNIM(arr, pivotIndex + 1, high);
-        }
+    public static void quickSortNIM(Mahasiswa[] arr, int left, int right) {
+        if (left >= right) return;
+
+        String pivot = arr[right].getNim();
+        int partition = partition(arr, left, right, pivot);
+
+        quickSortNIM(arr, left, partition - 1);
+        quickSortNIM(arr, partition + 1, right);
     }
 
-    public static int partition(Mahasiswa[] arr, int low, int high) {
-        Mahasiswa pivot = arr[high];
-        int i = (low - 1);
-
-        for (int j = low; j < high; j++) {
-            if (arr[j].nim.compareTo(pivot.nim) <= 0) {
+    private static int partition(Mahasiswa[] arr, int left, int right, String pivot) {
+        int i = left - 1;
+        for (int j = left; j < right; j++) {
+            if (arr[j].getNim().compareTo(pivot) < 0) {
                 i++;
                 Mahasiswa temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
             }
         }
-
         Mahasiswa temp = arr[i + 1];
-        arr[i + 1] = arr[high];
-        arr[high] = temp;
-
+        arr[i + 1] = arr[right];
+        arr[right] = temp;
         return i + 1;
-    }
-
-    public static void printArray(Mahasiswa[] arr) {
-        for (Mahasiswa m : arr) {
-            System.out.println(m);
-        }
-        System.out.println();
     }
 
     public static void main(String[] args) {
         Mahasiswa[] data = {
-            new Mahasiswa("Hanif", "240605110123"),
-            new Mahasiswa("Budi", "240605110010"),
-            new Mahasiswa("Sinta", "240605110045"),
-            new Mahasiswa("Andi", "240605110003"),
-            new Mahasiswa("Putra", "240605110020")
+            new Mahasiswa("240605110123", "Hanif"),
+            new Mahasiswa("240605110024", "Zainab"),
+            new Mahasiswa("240605110035", "Salim"),
+            new Mahasiswa("240605110135", "Ali"),
+            new Mahasiswa("240605110251", "Salah")
         };
 
-        System.out.println("=== Data Sebelum Sorting ===");
-        printArray(data);
+        System.out.println("Data Asli:");
+        tampil(data);
 
-        Mahasiswa[] mergeSorted = data.clone();
-        mergeSortNIM(mergeSorted, 0, mergeSorted.length - 1);
-        System.out.println("=== Setelah Merge Sort (berdasarkan NIM) ===");
-        printArray(mergeSorted);
+        Mahasiswa[] mergeData = Arrays.copyOf(data, data.length);
+        mergeSortNIM(mergeData, 0, mergeData.length - 1);
+        System.out.println("\nHasil Merge Sort (berdasarkan NIM):");
+        tampil(mergeData);
 
-        Mahasiswa[] shellSorted = data.clone();
-        shellSortNama(shellSorted);
-        System.out.println("=== Setelah Shell Sort (berdasarkan Nama) ===");
-        printArray(shellSorted);
+        Mahasiswa[] shellData = Arrays.copyOf(data, data.length);
+        shellSortNama(shellData);
+        System.out.println("\nHasil Shell Sort (berdasarkan Nama):");
+        tampil(shellData);
 
-        Mahasiswa[] quickSorted = data.clone();
-        quickSortNIM(quickSorted, 0, quickSorted.length - 1);
-        System.out.println("=== Setelah Quick Sort (berdasarkan NIM) ===");
-        printArray(quickSorted);
+        Mahasiswa[] quickData = Arrays.copyOf(data, data.length);
+        quickSortNIM(quickData, 0, quickData.length - 1);
+        System.out.println("\nHasil Quick Sort (berdasarkan NIM):");
+        tampil(quickData);
+    }
+
+    public static void tampil(Mahasiswa[] arr) {
+        for (Mahasiswa m : arr) {
+            System.out.println(m);
+        }
     }
 }
