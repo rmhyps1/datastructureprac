@@ -47,13 +47,13 @@ public class HashMapT {
         }
 
         //Mendapatkan ukuran HashMap
-        System.out.println("\n--- 7. Ukuran ---");
+        System.out.println("\n--- 7. Ukuran");
         System.out.println("Jumlah Mahasiswa saat ini: " + studentMap.size());
 
         //Membersihkan seluruh isi HashMap
         System.out.println("\n--- 8. Membersihkan HashMap (clear) ---");
         studentMap.clear();
         System.out.println("HashMap setelah clear: " + studentMap);
-        System.out.println("Apakah HashMap kosong? " + studentMap.isEmpty());
+        
     }
 }
