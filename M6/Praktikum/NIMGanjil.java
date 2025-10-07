@@ -129,30 +129,3 @@ public class NIMGanjil {
         }
     }
 }
-       tampil(quickData);
-    }
-
-    public static void tampil(Mahasiswa[] arr) {
-        for (Mahasiswa m : arr) {
-            System.out.println(m);
-        }
-    }
-}
-       tampil(quickData);
-    }
-
-    public static void tampil(Mahasiswa[] arr) {
-        for (Mahasiswa m : arr) {
-            System.out.println(m);
-        }
-    }
-}
-       tampil(quickData);
-    }
-
-    public static void tampil(Mahasiswa[] arr) {
-        for (Mahasiswa m : arr) {
-            System.out.println(m);
-        }
-    }
-}
