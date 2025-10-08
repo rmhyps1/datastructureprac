@@ -1,4 +1,4 @@
-package teori.Sorting;
+package Sorting;
 
 import java.util.Collections;
 import java.util.List;

@@ -1,4 +1,4 @@
-package teori.Sorting;
+package Sorting;
 import java.util.List;
 
 public interface SortStrategy {
