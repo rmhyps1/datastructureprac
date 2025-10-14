@@ -2,6 +2,7 @@ package UTS;
 
 import java.util.*;
 
+
 public class datadosen implements SortStrategy {
 
     public void sort(List<String> data) {
@@ -30,10 +31,13 @@ public class datadosen implements SortStrategy {
         dosen.add("3828 - Dr. Andi");
         System.out.println("Data dosen saat ini: " + dosen);
 
+        dosen.add(2, "1234 - Dr. Lala");
+        System.out.println("Data dosen setelah penambahan: " + dosen);
+
         dosen.set(1, "7898 - Dr. Maia");
         System.out.println("Data dosen setelah update: " + dosen);
 
-        
+
         SortStrategy sortStrategy = new datadosen();
         sortStrategy.sort(dosen);
         System.out.println("Data dosen setelah diurutkan: " + dosen);
