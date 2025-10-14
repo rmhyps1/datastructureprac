@@ -4,12 +4,6 @@ import java.util.HashMap;
 public class HashMapNilaiTugas {
     public static void main(String[] args) {
         HashMap<String, ArrayList<Double>> nilaiTugasMap = new HashMap<>();
-<<<<<<< HEAD
-=======
-        HashMap<String, ArrayList<Double>> NilaiUTSMap = new HashMap<>();
-        HashMap<String, ArrayList<Double>> NilaiUASMap = new HashMap<>();
-        HashMap<String, ArrayList<Double>> NilaiMataKuliahMap = new HashMap<>();
->>>>>>> e10c83a8ad479e8cb614b2dfdfc13ce1bbfd2ed1
 
         //Tugas
         ArrayList<Double> nilaiTugas1 = new ArrayList<>();
