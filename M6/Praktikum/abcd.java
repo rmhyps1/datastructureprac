@@ -1,4 +1,4 @@
-package M6.Praktikum;
+package m6.Praktikum;
 
 import javax.sound.sampled.SourceDataLine;
 
