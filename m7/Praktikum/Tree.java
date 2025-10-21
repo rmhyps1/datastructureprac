@@ -92,8 +92,7 @@ public class Tree {
                 return false;
             }
         }
-        if (current.leftChild == null
-                && current.rightChild == null) {
+        if (current.leftChild == null && current.rightChild == null) {
             if (current == root) {
                 root = null;
             } else if (isLeftChild) {

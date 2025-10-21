@@ -26,7 +26,7 @@ public class TreeApp {
         theTree.displayTree();
 
         while (true) {
-            System.out.print("Enter first letter of show, " + "insert, find, delete, or traverse: ");
+            System.out.print("Enter first letter of show, insert, find, delete, traverse, max(x), min(n): ");
             int choice = getChar();
             switch (choice) {
                 case 's':
@@ -66,6 +66,26 @@ public class TreeApp {
                     System.out.print("Enter type 1, 2 or 3: ");
                     value = getInt();
                     theTree.traverse(value);
+                    break;
+                case 'x':
+                    Node max = theTree.getMax();
+                    if (max != null) {
+                        System.out.print("Max: ");
+                        max.displayNode();
+                        System.out.print("\n");
+                    } else {
+                        System.out.println("Tree kosong (tidak ada data)");
+                    }
+                    break;
+                case 'n':
+                    Node min = theTree.getMin();
+                    if (min != null) {
+                        System.out.print("Min: ");
+                        min.displayNode();
+                        System.out.print("\n");
+                    } else {
+                        System.out.println("Tree kosong (tidak ada data)");
+                    }
                     break;
                 default:
                     System.out.println("Invalid entry ");
