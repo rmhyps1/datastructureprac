@@ -1,4 +1,4 @@
-package M5.Pendahuluan;
+package m5.Pendahuluan;
 
 class Faktorial {
 

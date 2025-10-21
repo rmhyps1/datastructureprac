@@ -1,4 +1,4 @@
-package M5.Praktikum;
+package m5.Praktikum;
 
 class Pangkat {
 
