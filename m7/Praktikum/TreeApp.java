@@ -1,4 +1,4 @@
-package m7.Pendahuluan;
+package m7.Praktikum;
 
 import java.io.*;
 
@@ -25,22 +25,6 @@ public class TreeApp {
         System.out.println("Tampilan TREE AWAL (Setelah ID 45 ditambahkan):");
         theTree.displayTree();
 
-        System.out.println("\n[1] HAPUS NODE 12 (Naya) - Leaf (0 Child)");
-        theTree.delete(12);
-        System.out.println("Tampilan Tree setelah hapus 12:");
-        theTree.displayTree();
-
-
-        System.out.println("\n[2] HAPUS NODE 30 (Beri) - 1 Child (Punya 33)");
-        theTree.delete(30);
-        System.out.println("Tampilan Tree setelah hapus 30 (Node 33 naik):");
-        theTree.displayTree();
-
-        System.out.println("\n[3] HAPUS NODE 37 (Gagas) - 2 Children");
-        theTree.delete(37);
-        System.out.println("Tampilan Tree setelah hapus 37 (Node 43 naik sbg Successor):");
-        theTree.displayTree();
-
         while (true) {
             System.out.print("Enter first letter of show, " + "insert, find, delete, or traverse: ");
             int choice = getChar();
@@ -49,8 +33,7 @@ public class TreeApp {
                     theTree.displayTree();
                     break;
                 case 'i':
-                    System.out.print("Enter value and data to"
-                            + " insert: ");
+                    System.out.print("Enter value and data to" + " insert: ");
                     value = getInt();
                     data = getString();
                     theTree.insert(value, data);
