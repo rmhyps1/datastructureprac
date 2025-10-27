@@ -13,7 +13,7 @@ class Link {
     }
 
     public void displayLink() {
-        System.out.println(iData + " ");
+        System.out.print(iData + " ");
     }
 }
 
@@ -65,7 +65,7 @@ class SortedLinkList {
         return null;
     }
 
-    public void DislplayList() {
+    public void DisplayList() {
         System.out.print("List (first-->last): ");
         Link current = first;
         while (current != null) {

@@ -81,6 +81,25 @@ public class HashTableApp {
             table.insert(i);
         }
         table.displayTable();
+
+        int[] cari = {23, 25};
+        for (int key : cari) {
+            Data hasil = table.find(key);
+            if (hasil != null) {
+                System.out.println("Data dengan key: " + key + " ditemukan");
+            } else {
+                System.out.println("Tidak ketemu key: " + key);
+            }
+        }
+
+        int[] hapus = {5, 7};
+        for (int key : hapus) {
+            Data hasil = table.delete(key);
+            if (hasil != null) {
+                System.out.println("Data dengan key: " + key + " dihapus");
+            } else {
+                System.out.println("Tidak ketemu key: " + key);
+            }
+        }
     }
-    
 }
