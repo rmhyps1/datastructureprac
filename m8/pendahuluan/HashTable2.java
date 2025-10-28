@@ -76,10 +76,21 @@ class HashTable {
 public class HashTable2 {
     public static void main(String[] args) {
         HashTable table = new HashTable(15);
-        int[] items = {12, 25, 36, 20, 30, 5, 7, 8, 19, 29, 11, 3, 16, 23, 14};
+        int[] items = {12, 25, 36, 20, 30, 5, 7, 8, 19, 29};
         for (int i : items) {
             table.insert(i);
         }
+        System.out.println("Sebelum penambahan (10 item):");
+        table.displayTable();
+
+        int[] menambahkan = {11, 3, 16, 23, 14};
+        System.out.println("Menambahkan 5 item baru dan menampilkan posisinya:");
+        for (int i : menambahkan) {
+            table.insert(i);
+            System.out.println("Key " + i + " ditaruh di index " + table.hashFunc(i));
+        }
+
+        System.out.println("\nSetelah penambahan (total 15 item):");
         table.displayTable();
     }
     
