@@ -5,7 +5,7 @@ class HashTable {
     private int count;    
 
     public HashTable(int s) {
-        size = s;
+        size = 10;
         table = new int[size];
         prime = 5;
         count = 0;
