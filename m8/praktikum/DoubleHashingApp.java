@@ -49,7 +49,7 @@ class HashTable {
 public class DoubleHashingApp {
     public static void main(String[] args) {
         HashTable table = new HashTable(15);
-        int[] items = {12, 44, 13, 88, 23, 94, 11, 39, 20, 16};
+        int[] items = {12, 44, 13, 88, 23, 94, 11, 39, 20, 16, 55};
         for (int item : items) {
             table.insert(item);
         }
