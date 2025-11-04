@@ -65,6 +65,7 @@ class Heap {
     public void trickleDown(int index) {
         trickleDown(index, currentSize);
     }
+    
     public void trickleDown(int index, int size) {
         int smallerChild;
         Node top = heapArray[index];
@@ -168,12 +169,12 @@ public class HeapSortApp {
             heap.insertAt(i, value);
         }
 
-        System.out.println("Array sebelum sorting:");
+        System.out.println("Heap Sort sebelum sorting:");
         heap.displayHeap();
 
         heap.HeapSort();
 
-        System.out.println("\nArray setelah sorting:");
+        System.out.println("\nHeap Sort setelah sorting:");
         heap.displayHeap();
     }
 }
