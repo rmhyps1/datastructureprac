@@ -16,10 +16,10 @@ public class GraphApp1 {
         theGraph.addEdge(3, 4);
         theGraph.display();
 
-        //theGraph.dfs();
-        //System.out.println("");
-        //theGraph.bfs();
-        //System.out.println("");
+        theGraph.dfs();
+        System.out.println("");
+        theGraph.bfs();
+        System.out.println("");
         theGraph.mst();
     }
 }
