@@ -9,11 +9,13 @@ public class Graph {
     private int adjMat[][];
     private int nVerts;
     private Stack<Integer> theStack;
-    private Queue theQueue; // ditambahkan
+    private Queue theQueue; 
+    private char sortedArray[];
 
     public Graph() {
         theStack = new Stack<>();
-        theQueue = new Queue(MAX_VERTS); // inisialisasi queue
+        theQueue = new Queue(MAX_VERTS); 
+        sortedArray = new char[MAX_VERTS];
         vertexList = new Vertex[MAX_VERTS];
         adjMat = new int[MAX_VERTS][MAX_VERTS];
         nVerts = 0;
@@ -30,12 +32,11 @@ public class Graph {
     }
 
     public void addEdge(int start, int end) {
-        // directed edge: start -> end
         adjMat[start][end] = 1;
     }
 
     public void display() {
-        System.out.println("Adjency: ");
+        System.out.println("Adjacency: ");
         for (int row = 0; row < nVerts; row++) {
             for (int col = 0; col < nVerts; col++) {
                 if (adjMat[row][col] == 1) {
@@ -46,34 +47,18 @@ public class Graph {
         System.out.println();
     }
 
-    // print adjacency matrix (labels + matrix) and then connectivity table
     public void displayMatrix() {
-        System.out.println("Adjacency Matrix:");
-        System.out.print("  ");
-        for (int i = 0; i < nVerts; i++) {
-            System.out.print(vertexList[i].label + " ");
-        }
-        System.out.println();
-        for (int i = 0; i < nVerts; i++) {
-            System.out.print(vertexList[i].label + " ");
-            for (int j = 0; j < nVerts; j++) {
-                System.out.print(adjMat[i][j] + " ");
-            }
-            System.out.println();
-        }
-        System.out.println();
-
-        // juga tampilkan adjacency list/edges (opsional sesuai contoh)
         display();
+    }
 
-        // tampilkan connectivity table
+    public void dfs() {
         System.out.println("Connectivity Table:");
         for (int s = 0; s < nVerts; s++) {
-            // reset flags
+  
             for (int k = 0; k < nVerts; k++) {
                 vertexList[k].wasVisited = false;
             }
-            // perform DFS starting at s, record visitation order (excluding start)
+
             ArrayList<Character> reachable = new ArrayList<>();
             vertexList[s].wasVisited = true;
             theStack.clear();
@@ -88,7 +73,7 @@ public class Graph {
                     theStack.push(v);
                 }
             }
-            // print row: startLabel [reachable...]
+  
             System.out.print(vertexList[s].label);
             if (!reachable.isEmpty()) {
                 System.out.print(" ");
@@ -100,26 +85,6 @@ public class Graph {
             System.out.println();
         }
 
-        // reset flags after done
-        resetFlags();
-    }
-
-    public void dfs() {
-        System.out.println("Visit by using" + " DFS algorithm: ");
-        vertexList[0].wasVisited = true;
-        displayVertex(0);
-        theStack.push(0);
-        while (!theStack.isEmpty()) {
-            int v = getAdjUnvisitedVertex(theStack.peek());
-            if (v == -1) {
-                theStack.pop();
-            } else {
-                vertexList[v].wasVisited = true;
-                displayVertex(v);
-                theStack.push(v);
-            }
-        }
-        System.out.println("");
         resetFlags();
     }
 
@@ -181,6 +146,67 @@ public class Graph {
             }
         }
         resetFlags();
+    }
+
+    public void topo() {
+        int orig_nVerts = nVerts;
+        while (nVerts > 0) {
+            int currentVertex = noSuccessors();
+            if (currentVertex == -1) {
+                System.out.println("ERROR: Graph has cycles");
+                return;
+            }
+            sortedArray[nVerts - 1] = vertexList[currentVertex].label;
+            deleteVertex(currentVertex);
+        }
+        System.out.print("\nTopologically sorted order: ");
+        for (int i = 0; i < orig_nVerts; i++) {
+            System.out.print(sortedArray[i] + " ");
+        }
+        System.out.println(); 
+    }
+
+    private int noSuccessors() {
+        boolean isEdge;
+        for (int row = 0; row < nVerts; row++) {
+            isEdge = false;
+            for (int col = 0; col < nVerts; col++) {
+                if (adjMat[row][col] > 0) {
+                    isEdge = true;
+                    break;
+                }
+            }
+            if (!isEdge) {
+                return row;
+            }
+        }
+        return -1;
+    }
+
+    public void deleteVertex(int delVertex) {
+        if (delVertex != nVerts - 1) {
+            for (int j = delVertex; j < nVerts - 1; j++) {
+                vertexList[j] = vertexList[j + 1];
+            }
+            for (int row = delVertex; row < nVerts - 1; row++) {
+                moveRowUp(row, nVerts);
+            }
+            for (int col = delVertex; col < nVerts - 1; col++) {
+                moveColLeft(col, nVerts - 1);
+            }
+        }
+        nVerts--;
+    }
+    private void moveRowUp(int row, int length) {
+        for (int col = 0; col < length; col++) {
+            adjMat[row][col] = adjMat[row + 1][col];
+        }
+    }
+
+    private void moveColLeft(int col, int length) {
+        for (int row = 0; row < length; row++) {
+            adjMat[row][col] = adjMat[row][col + 1];
+        }
     }
 
 }

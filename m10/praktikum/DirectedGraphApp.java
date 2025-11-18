@@ -4,20 +4,25 @@ public class DirectedGraphApp {
     public static void main(String[] args) {
         Graph theGraph = new Graph();
 
-        theGraph.addVertex('A'); // index 0
-        theGraph.addVertex('B'); // index 1
-        theGraph.addVertex('C'); // index 2
-        theGraph.addVertex('D'); // index 3
-        theGraph.addVertex('E'); // index 4
+        theGraph.addVertex('A'); 
+        theGraph.addVertex('B'); 
+        theGraph.addVertex('C'); 
+        theGraph.addVertex('D'); 
+        theGraph.addVertex('E');
+        theGraph.addVertex('F');
+        theGraph.addVertex('G');
+        theGraph.addVertex('H');
+        
+        theGraph.addEdge(0, 3);
+        theGraph.addEdge(3, 6);
+        theGraph.addEdge(1, 4);
+        theGraph.addEdge(4, 6);
+        theGraph.addEdge(6, 7);
+        theGraph.addEdge(2, 5);
+        theGraph.addEdge(5, 7);
 
-        // Menambah directed edges sesuai Gambar 10.8
-        theGraph.addEdge(1, 0); // Edge B -> A
-        theGraph.addEdge(0, 2); // Edge A -> C
-        theGraph.addEdge(1, 4); // Edge B -> E
-        theGraph.addEdge(3, 4); // Edge D -> E
-        theGraph.addEdge(4, 2); // Edge E -> C
-
-        // Menampilkan matrix
-        theGraph.displayMatrix();
+        theGraph.display();
+        theGraph.dfs();
+        theGraph.topo();   
     }
 }
