@@ -13,11 +13,11 @@ public class DirectedGraphApp {
         theGraph.addVertex('G');
         theGraph.addVertex('H');
         
-        theGraph.addEdge(0, 3);
+        theGraph.addEdge(1, 0);
+        theGraph.addEdge(0, 4);
+        theGraph.addEdge(4, 3);
         theGraph.addEdge(3, 6);
-        theGraph.addEdge(1, 4);
-        theGraph.addEdge(4, 6);
-        theGraph.addEdge(6, 7);
+        theGraph.addEdge(6, 2);
         theGraph.addEdge(2, 5);
         theGraph.addEdge(5, 7);
 
